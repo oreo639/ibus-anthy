@@ -1,0 +1,71 @@
+option('kasumi_exec',
+  type: 'string',
+  value: '',
+  description: 'run-time path to kasumi executable'
+)
+
+option('kasumi_icon',
+  type: 'string',
+  value: '',
+  description: 'run-time path to kasumi icon'
+)
+
+option('on_off_keys',
+  type: 'string',
+  value: '\'Zenkaku_Hankaku\', \'Ctrl+J\'',
+  description: 'run-time path to kasumi icon'
+)
+
+# check preference icon name
+# Replaced the legacy icon gtk-preferences with preferences-desktop
+# because the icon is included in gnome-icon-theme-legacy package.
+# The following fix would be needed for old non-GNOME desktops.
+# https://github.com/ibus/ibus/commit/dd6acfa5013b
+# Otherwise you can specify the preference icon for your desktop.
+option('icon_preference',
+  type: 'string',
+  value: 'preferences-desktop',
+  description: 'preference icon name'
+)
+
+option('private_png',
+  type: 'boolean',
+  value: false,
+  description: 'if you install the private png file'
+)
+
+option('hotkeys',
+  type: 'string',
+  value: 'no',
+  description: 'Use hotkeys for ibus bridge mode. (available value: yes/no/keys)'
+)
+
+option('python',
+  type: 'string',
+  value: 'python',
+  description: 'Python executable for engine'
+)
+
+option('keylayout',
+  type: 'string',
+  value: 'jp',
+  description: 'Define the layout. the default is \'jp\'. Probably you could set \'default\'.'
+)
+
+option('pygtk2_anthy',
+  type: 'boolean',
+  value: false,
+  description: 'Install pygtk2 anthy.'
+)
+
+option('engine_env',
+  type: 'string',
+  value: '',
+  description: 'ibus-engine-anthy environments like "LD_LIBRARY_PATH=/usr/lib/anthy" for libanthy.so.'
+)
+
+option('installed_tests',
+  type: 'boolean',
+  value: false,
+  description: 'Enable/disable installing tests.'
+)

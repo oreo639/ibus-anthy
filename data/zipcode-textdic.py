@@ -19,6 +19,9 @@ if len(sys.argv) < 2:
     exit(-1)
 
 anthy_zipfile = sys.argv[1]
+anthy_outfile = 'zipcode.t'
+if len(sys.argv) > 2:
+    anthy_outfile = sys.argv[2]
 
 try:
     contents = codecs.open(anthy_zipfile, 'r', 'euc_jp').read()
@@ -26,7 +29,7 @@ except UnicodeDecodeError as e:
     print('Your file is not eucJP? %s' % anthy_zipfile, file=sys.stderr)
     contents = open(anthy_zipfile).read()
 
-output_zipfile = codecs.open('zipcode.t', 'w', 'utf-8')
+output_zipfile = codecs.open(anthy_outfile, 'w', 'utf-8')
 output_zipfile.write('# copied %s with UTF-8.\n#\n' % anthy_zipfile)
 
 for line in contents.split('\n'):
@@ -63,3 +66,4 @@ for line in contents.split('\n'):
 
 output_zipfile.flush()
 output_zipfile.close()
+
